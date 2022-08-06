@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { StoreProdiver } from "../utils/Store";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <StoreProdiver>
+      <Component {...pageProps} />
+    </StoreProdiver>
+  );
 }
 
-export default MyApp
+export default MyApp;
