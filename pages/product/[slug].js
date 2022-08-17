@@ -8,6 +8,7 @@ import Layout from "../../components/Layout";
 
 export default function ProductScreen() {
   const { state, dispatch } = useContext(Store);
+  const rouser = useRouter();
 
   const { query } = useRouter();
   const { slug } = query;
@@ -27,6 +28,7 @@ export default function ProductScreen() {
     }
 
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    rouser.push("/cart");
   };
   return (
     <Layout title={product.name}>
