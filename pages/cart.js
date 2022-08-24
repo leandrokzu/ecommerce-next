@@ -5,8 +5,9 @@ import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { Store } from "../utils/Store";
 import { XCircleIcon } from "@heroicons/react/outline";
+import dynamic from "next/dynamic";
 
-export default function CartScreen() {
+function CartScreen() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
@@ -18,8 +19,8 @@ export default function CartScreen() {
   };
   const updateCartHandler = (item, qty) => {
     const quantity = Number(qty);
-    dispatch({type: "CART_ADD_ITEM", payload: {...item, quantity}})
-  }
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+  };
   return (
     <Layout title="Shopping Cart">
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
@@ -102,3 +103,5 @@ export default function CartScreen() {
     </Layout>
   );
 }
+
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });
