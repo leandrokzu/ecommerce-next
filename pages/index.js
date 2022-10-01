@@ -19,14 +19,14 @@ export default function Home({ products }) {
     if (data.countInStock < quantity) {
       return toast.error("Sorry. Product is out of stock");
     }
-
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    
     toast.success("Product added to the cart");
   };
 
   return (
     <Layout title="Home Page">
-      <div className="grid crid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductItem
             product={product}
