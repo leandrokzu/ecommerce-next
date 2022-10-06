@@ -42,5 +42,3 @@ textarea {
 .alert-success {
   @apply my-3 rounded-lg bg-red-100 p-3 text-green-700;
 }
-
-/* teste */
